@@ -1,0 +1,281 @@
+/* Acessibilidade do Cidade Verde. Carregar DEPOIS de tokens.css e do CSS da página.
+   Os atributos em <html> (data-theme, data-contrast, data-spacing, data-font, data-motion,
+   data-links, data-scale) são definidos por a11y.js. */
+
+/* ===================================================================
+   1. Painel e botão flutuante
+   =================================================================== */
+.a11y{
+  position:fixed; z-index:200;
+  right:max(1em, env(safe-area-inset-right, 0px));
+  bottom:max(1em, env(safe-area-inset-bottom, 0px));
+  display:flex; flex-direction:column; align-items:flex-end; gap:.75em;
+  font-family:var(--body); font-size:clamp(16px, 1rem, 24px); line-height:1.4; letter-spacing:normal; word-spacing:normal;
+  --focus:#1B5FD1;
+}
+:root[data-theme="dark"] .a11y{--focus:#7FA9FF}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .a11y{--focus:#7FA9FF} }
+
+.a11y-toggle{
+  order:2; display:inline-flex; align-items:center; gap:.55em; min-height:3em; padding:.55em 1em .55em .8em;
+  font:700 .95em/1.2 var(--body); color:var(--bg); background:var(--fg);
+  border:2px solid var(--bg); border-radius:99px; cursor:pointer;
+  box-shadow:0 0 0 1px var(--fg), 0 4px 14px rgba(0,0,0,.28);
+}
+.a11y-toggle:hover{background:var(--accent); color:var(--on-accent); box-shadow:0 0 0 1px var(--accent), 0 4px 14px rgba(0,0,0,.28)}
+.a11y-toggle svg{width:1.5em; height:1.5em; flex:none}
+.a11y :focus-visible{outline:3px solid var(--focus); outline-offset:3px; border-radius:6px}
+.a11y-toggle:focus-visible{border-radius:99px}
+
+.a11y-panel{
+  order:1; width:min(22em, calc(100vw - 2em)); max-height:min(40em, calc(100vh - 6.5em)); max-height:min(40em, calc(100dvh - 6.5em));
+  display:flex; flex-direction:column; overflow:hidden;
+  background:var(--surface); color:var(--fg); border:1px solid var(--line); border-radius:12px;
+  box-shadow:0 12px 40px rgba(0,0,0,.28);
+}
+.a11y-panel[hidden]{display:none}
+.a11y-head{display:flex; align-items:center; justify-content:space-between; gap:1em; padding:.9em 1em .8em 1.25em; border-bottom:1px solid var(--line)}
+.a11y-head h2{font:600 1.25em/1.2 var(--display); letter-spacing:-.01em; margin:0}
+.a11y-close{
+  width:44px; height:44px; display:grid; place-items:center; flex:none; cursor:pointer;
+  font:400 28px/1 var(--body); color:var(--fg); background:none; border:1px solid var(--line); border-radius:8px;
+}
+.a11y-close:hover{border-color:var(--fg)}
+.a11y-body{display:grid; gap:1.1em; padding:1.1em 1.25em; overflow-y:auto; overscroll-behavior:contain}
+.a11y-foot{padding:.8em 1.25em 1em; border-top:1px solid var(--line)}
+
+.a11y-group{border:0; margin:0; padding:0; min-width:0; display:grid; gap:.5em}
+.a11y-group legend,.a11y-group-title{padding:0; margin:0; font-size:.9em; font-weight:700}
+
+/* Grupo de 3 opções (tema) */
+.a11y-seg{display:grid; grid-template-columns:repeat(3, 1fr); border:1px solid var(--line); border-radius:8px; overflow:hidden}
+.a11y-seg-item{position:relative; display:flex}
+.a11y-seg-item + .a11y-seg-item{border-left:1px solid var(--line)}
+.a11y-seg input{position:absolute; opacity:0; inset:0; width:100%; height:100%; margin:0; cursor:pointer}
+.a11y-seg label{
+  flex:1; display:flex; align-items:center; justify-content:center; min-height:2.75em; padding:.4em .3em;
+  font-size:.92em; font-weight:600; text-align:center; cursor:pointer; background:var(--surface); color:var(--fg);
+}
+.a11y-seg input:checked + label{background:var(--fg); color:var(--bg)}
+.a11y-seg input:focus-visible + label{outline:3px solid var(--focus); outline-offset:-3px}
+.a11y-seg input:not(:checked):hover + label{background:var(--track)}
+
+/* Tamanho do texto */
+.a11y-size{display:grid; grid-template-columns:3.5em 1fr 3.5em; gap:.5em; align-items:center}
+.a11y-step{
+  min-height:2.75em; font:700 1.05em/1 var(--body); color:var(--fg); background:var(--surface);
+  border:1px solid var(--line); border-radius:8px; cursor:pointer;
+}
+.a11y-step:hover:not(:disabled){border-color:var(--fg); background:var(--track)}
+.a11y-step:disabled{opacity:.4; cursor:not-allowed}
+.a11y-size-value{text-align:center; font:600 1.1em var(--mono); font-variant-numeric:tabular-nums}
+
+/* Interruptores */
+.a11y-switch{position:relative; display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:.25em 1em; align-items:center; padding-block:.15em}
+.a11y-switch input{position:absolute; opacity:0; width:1px; height:1px; margin:0}
+.a11y-switch label{display:grid; gap:.1em; cursor:pointer}
+.a11y-switch label::after{content:""; position:absolute; inset:-.2em -.35em}
+.a11y-switch-title{font-size:.95em; font-weight:700}
+.a11y-help{font-size:.82em; color:var(--muted)}
+.a11y-track{
+  position:relative; width:2.9em; height:1.7em; flex:none; border-radius:99px;
+  background:var(--track); border:2px solid var(--muted); pointer-events:none;
+  transition:background-color .15s, border-color .15s;
+}
+.a11y-thumb{position:absolute; top:50%; left:.2em; width:1.05em; height:1.05em; margin-top:-.525em; border-radius:50%; background:var(--muted); transition:transform .15s, background-color .15s}
+.a11y-switch input:checked ~ .a11y-track{background:var(--accent); border-color:var(--accent)}
+.a11y-switch input:checked ~ .a11y-track .a11y-thumb{transform:translateX(1.2em); background:var(--on-accent)}
+.a11y-switch input:focus-visible ~ .a11y-track{outline:3px solid var(--focus); outline-offset:3px}
+.a11y-switch input:disabled ~ label{cursor:not-allowed}
+.a11y-switch input:disabled ~ .a11y-track{opacity:.7}
+
+.a11y-reset{
+  width:100%; min-height:2.75em; padding:.5em 1em; font:600 .95em var(--body); cursor:pointer;
+  color:var(--fg); background:var(--surface); border:1px solid var(--fg); border-radius:8px;
+}
+.a11y-reset:hover{background:var(--fg); color:var(--bg)}
+
+@media (max-width:30em){
+  .a11y-toggle-label{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+  .a11y-toggle{padding:.55em; width:3.25em; height:3.25em; justify-content:center}
+  .a11y-panel{width:calc(100vw - 2em)}
+}
+
+/* ===================================================================
+   2. Texto: tamanho (via --fs-scale em tokens.css), quebra e espaçamento
+   =================================================================== */
+body{overflow-wrap:break-word}
+:root[data-scale="150"] body,:root[data-scale="175"] body,:root[data-scale="200"] body{hyphens:auto}
+
+/* Espaçamento conforme WCAG 1.4.12: linhas 1,5x+, parágrafos 2x, letras 0,12em e palavras 0,16em */
+:root[data-spacing="wide"] body{line-height:1.8; letter-spacing:.05em; word-spacing:.16em}
+:root[data-spacing="wide"] p,
+:root[data-spacing="wide"] li,
+:root[data-spacing="wide"] dd,
+:root[data-spacing="wide"] dt,
+:root[data-spacing="wide"] td,
+:root[data-spacing="wide"] th,
+:root[data-spacing="wide"] figcaption,
+:root[data-spacing="wide"] label{line-height:1.8}
+:root[data-spacing="wide"] p + p{margin-top:1.6em}
+:root[data-spacing="wide"] h1,
+:root[data-spacing="wide"] h2,
+:root[data-spacing="wide"] h3{line-height:1.25; word-spacing:.08em}
+:root[data-spacing="wide"] .a11y{letter-spacing:normal; word-spacing:normal}
+
+/* Fonte de leitura fácil (carregada sob demanda por a11y.js) */
+:root[data-font="legible"]{
+  --display:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+}
+:root[data-font="legible"] h1,
+:root[data-font="legible"] h2,
+:root[data-font="legible"] h3{font-weight:700; letter-spacing:0; font-variation-settings:normal}
+
+/* Links sempre sublinhados (o alto contraste também liga isso) */
+:root[data-links="underline"] a:not(.btn):not(.brand):not(.skip),
+:root[data-contrast="high"] a:not(.btn):not(.brand):not(.skip){
+  text-decoration:underline; text-decoration-thickness:.1em; text-underline-offset:.22em;
+}
+
+/* ===================================================================
+   3. Movimento reduzido (também espelha prefers-reduced-motion)
+   =================================================================== */
+:root[data-motion="reduce"],:root[data-motion="reduce"] body{scroll-behavior:auto}
+:root[data-motion="reduce"] *,
+:root[data-motion="reduce"] *::before,
+:root[data-motion="reduce"] *::after{
+  transition:none !important; animation:none !important; scroll-behavior:auto !important;
+}
+html.js[data-motion="reduce"] .reveal{opacity:1; transform:none}
+:root[data-motion="reduce"] .btn:hover{transform:none}
+
+/* ===================================================================
+   4. Alto contraste
+   Claro por padrão; escuro quando o tema for escuro (explícito ou do sistema).
+   =================================================================== */
+:root[data-contrast="high"]{
+  color-scheme: light;
+  --bg:#FFFFFF; --surface:#FFFFFF; --fg:#000000; --muted:#1A1A1A; --line:#000000; --track:#DCDCDC;
+  --accent:#00351B; --on-accent:#FFFFFF; --olive:#2F3A00; --river:#003F66; --earth:#6B3A00;
+  --hero-bg:#000000; --hero-fg:#FFFFFF;
+  --a:#00474B; --a-soft:#FFFFFF; --b:#7A3D00; --b-soft:#FFFFFF;
+  --pend:#4A3600; --pend-bg:#FFFFFF; --err:#8A0000; --focus:#0030B8;
+}
+:root[data-contrast="high"][data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#000000; --surface:#000000; --fg:#FFFFFF; --muted:#EDEDED; --line:#FFFFFF; --track:#3A3A3A;
+  --accent:#7DFFB0; --on-accent:#000000; --olive:#D6F08A; --river:#8FD3FF; --earth:#FFC48A;
+  --hero-bg:#000000; --hero-fg:#FFFFFF;
+  --a:#5FF0F5; --a-soft:#000000; --b:#FFB566; --b-soft:#000000;
+  --pend:#FFE066; --pend-bg:#000000; --err:#FF9C94; --focus:#FFD400;
+}
+@media (prefers-color-scheme: dark){
+  :root[data-contrast="high"]:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#000000; --surface:#000000; --fg:#FFFFFF; --muted:#EDEDED; --line:#FFFFFF; --track:#3A3A3A;
+    --accent:#7DFFB0; --on-accent:#000000; --olive:#D6F08A; --river:#8FD3FF; --earth:#FFC48A;
+    --hero-bg:#000000; --hero-fg:#FFFFFF;
+    --a:#5FF0F5; --a-soft:#000000; --b:#FFB566; --b-soft:#000000;
+    --pend:#FFE066; --pend-bg:#000000; --err:#FF9C94; --focus:#FFD400;
+  }
+}
+
+/* Foco mais grosso e visível */
+:root[data-contrast="high"] :focus-visible{outline-width:4px; outline-offset:3px}
+:root[data-contrast="high"] .hero,
+:root[data-contrast="high"] .final,
+:root[data-contrast="high"] .site-footer,
+:root[data-contrast="high"] .transicao,
+:root[data-contrast="high"] .site-header.at-top{--focus:#FFD400}
+:root[data-contrast="high"][data-theme="dark"] .transicao{--focus:#0030B8}
+@media (prefers-color-scheme: dark){
+  :root[data-contrast="high"]:not([data-theme="light"]) .transicao{--focus:#0030B8}
+}
+
+/* Textura de fundo e transparências atrapalham a leitura */
+:root[data-contrast="high"] .hero::before,
+:root[data-contrast="high"] .projeto::before,
+:root[data-contrast="high"] .pernambuco::before,
+:root[data-contrast="high"] .transicao::before,
+:root[data-contrast="high"] .final::before{display:none}
+:root[data-contrast="high"] .hero-tag{color:var(--hero-fg)}
+:root[data-contrast="high"] .hero-sub,
+:root[data-contrast="high"] .final p,
+:root[data-contrast="high"] .footer-about p:last-child,
+:root[data-contrast="high"] .site-footer li a{color:var(--hero-fg)}
+:root[data-contrast="high"] .hero-art figcaption{background:#000; color:#fff}
+:root[data-contrast="high"] .nota-ferramenta{opacity:1}
+:root[data-contrast="high"] .site-footer{border-top-color:var(--hero-fg)}
+
+/* Bordas onde antes só havia diferença de tom */
+:root[data-contrast="high"] .site-header{border-bottom:2px solid var(--line)}
+:root[data-contrast="high"] .hero,
+:root[data-contrast="high"] .final{border-bottom:2px solid #fff}
+:root[data-contrast="high"] .card,
+:root[data-contrast="high"] .kpi,
+:root[data-contrast="high"] select,
+:root[data-contrast="high"] .swap{border:2px solid var(--line)}
+:root[data-contrast="high"] .track{outline:1px solid var(--fg)}
+:root[data-contrast="high"] .status,
+:root[data-contrast="high"] .pill{border:1px solid currentColor}
+:root[data-contrast="high"] .tema-fig svg,
+:root[data-contrast="high"] .pe-fig svg{border:2px solid var(--line)}
+:root[data-contrast="high"] .desafios,
+:root[data-contrast="high"] .indicadores{border-block:2px solid var(--line)}
+:root[data-contrast="high"] .state{border-style:solid; border-width:2px}
+:root[data-contrast="high"] .tab[aria-selected="true"]{border-bottom-width:5px}
+:root[data-contrast="high"] .btn-primary:hover,
+:root[data-contrast="high"] .btn-nav:hover{background:var(--fg); color:var(--bg)}
+:root[data-contrast="high"] .hero .btn-primary:hover,
+:root[data-contrast="high"] .final .btn-primary:hover{background:var(--hero-fg); color:var(--hero-bg)}
+:root[data-contrast="high"] .btn-ghost{border-width:2px}
+:root[data-contrast="high"] .btn-ghost:hover{background:var(--hero-fg); color:var(--hero-bg)}
+
+/* O painel de acessibilidade também ganha bordas fortes */
+:root[data-contrast="high"] .a11y-panel{border:2px solid var(--line)}
+:root[data-contrast="high"] .a11y-seg,
+:root[data-contrast="high"] .a11y-step,
+:root[data-contrast="high"] .a11y-close{border-width:2px}
+:root[data-contrast="high"] .a11y-toggle:hover{background:var(--bg); color:var(--fg); box-shadow:0 0 0 2px var(--fg)}
+
+/* ===================================================================
+   5. Escalas grandes: os @media do projeto usam rem e não "enxergam" o tamanho
+   escolhido no painel. Estas regras antecipam o layout compacto.
+   =================================================================== */
+/* A partir de 130%: menu recolhido (igual a max-width:52rem) */
+html.js[data-scale="130"] .nav-toggle,html.js[data-scale="150"] .nav-toggle,
+html.js[data-scale="175"] .nav-toggle,html.js[data-scale="200"] .nav-toggle{display:inline-flex}
+html.js[data-scale="130"] .menu,html.js[data-scale="150"] .menu,
+html.js[data-scale="175"] .menu,html.js[data-scale="200"] .menu{display:none; flex-basis:100%; flex-direction:column; align-items:stretch; gap:.5rem; padding-block:.5rem 1.25rem}
+html.js[data-scale="130"] .menu.open,html.js[data-scale="150"] .menu.open,
+html.js[data-scale="175"] .menu.open,html.js[data-scale="200"] .menu.open{display:flex}
+html.js[data-scale="130"] .menu ul,html.js[data-scale="150"] .menu ul,
+html.js[data-scale="175"] .menu ul,html.js[data-scale="200"] .menu ul{flex-direction:column; gap:0}
+html.js[data-scale="130"] .menu li a,html.js[data-scale="150"] .menu li a,
+html.js[data-scale="175"] .menu li a,html.js[data-scale="200"] .menu li a{display:flex; align-items:center; min-height:3rem; width:100%; border-bottom:1px solid var(--line)}
+html.js[data-scale="130"] .btn-nav,html.js[data-scale="150"] .btn-nav,
+html.js[data-scale="175"] .btn-nav,html.js[data-scale="200"] .btn-nav{margin-top:.75rem; width:100%}
+/* Cabeçalho aberto não pode ser mais alto que a tela: rola por dentro */
+html.js[data-scale="130"] .site-header,html.js[data-scale="150"] .site-header,
+html.js[data-scale="175"] .site-header,html.js[data-scale="200"] .site-header{max-height:100vh; max-height:100dvh; overflow-y:auto}
+
+/* A partir de 150%: layout de tablet (igual a max-width:60rem) */
+:is(:root[data-scale="150"],:root[data-scale="175"],:root[data-scale="200"]) :is(.projeto-head,.projeto-body){grid-column:1 / -1}
+:is(:root[data-scale="150"],:root[data-scale="175"],:root[data-scale="200"]) :is(.tema,.pe-grid,.transicao-inner,.met-head,.hero-row,.ind-lista li,.met-status){grid-template-columns:minmax(0, 1fr)}
+:is(:root[data-scale="150"],:root[data-scale="175"],:root[data-scale="200"]) .tema-inv .tema-fig{order:0}
+:is(:root[data-scale="150"],:root[data-scale="175"],:root[data-scale="200"]) .pe-fig{position:static}
+
+/* A partir de 175%: layout de celular (igual a max-width:42rem) */
+:is(:root[data-scale="175"],:root[data-scale="200"]) :is(.fluxo,.cuidados,.footer-grid,.pe-lista > div){grid-template-columns:minmax(0, 1fr)}
+:is(:root[data-scale="175"],:root[data-scale="200"]) .btn{width:100%}
+:is(:root[data-scale="175"],:root[data-scale="200"]) .hero-cta{flex-direction:column}
+
+/* Comparador: seletores e abas em coluna única quando o texto está grande */
+:is(:root[data-scale="150"],:root[data-scale="175"],:root[data-scale="200"]) .pick{flex-basis:100%; max-width:none}
+:is(:root[data-scale="150"],:root[data-scale="175"],:root[data-scale="200"]) .kpi .pair{grid-template-columns:minmax(0, 1fr)}
+
+/* O hero é uma coluna flex e o .container (margin auto) encolhe até o conteúdo: com texto grande
+   isso vira um recuo. Só nas escalas aumentadas, para não alterar o layout padrão. */
+:is(:root[data-scale="130"],:root[data-scale="150"],:root[data-scale="175"],:root[data-scale="200"]) .hero > .container{width:100%}

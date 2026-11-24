@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cidade Verde | Indicadores Ambientais dos Municípios</title>
+<meta name="description" content="Explore e compare indicadores ambientais de municípios de Pernambuco com dados públicos sobre saneamento, resíduos, vegetação, recursos hídricos e riscos ambientais.">
+<meta name="theme-color" content="#143325">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Cidade Verde">
+<meta property="og:title" content="Cidade Verde | Indicadores Ambientais dos Municípios">
+<meta property="og:description" content="Explore e compare indicadores ambientais de municípios de Pernambuco com dados públicos sobre saneamento, resíduos, vegetação, recursos hídricos e riscos ambientais.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cidade Verde | Indicadores Ambientais dos Municípios">
+<meta name="twitter:description" content="Compare indicadores ambientais de municípios de Pernambuco com dados públicos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="landing.css">
+<link rel="stylesheet" href="a11y.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="a11y.js"></script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+<!-- SEÇÃO 1: cabeçalho e navegação -->
+<header class="site-header at-top" id="topo">
+  <div class="container bar">
+    <a class="brand" href="#inicio" aria-label="Cidade Verde, início da página">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 18c3-1 4-4 8-4s5 3 10 2"/><path d="M12 14V5m0 3c-3 0-4-2-4-4 3 0 4 1 4 4Zm0 2c3 0 4-2 4-4-3 0-4 1-4 4Z"/></svg>
+      <span>Cidade Verde</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">
+      <span class="nav-toggle-label">Menu</span>
+      <span class="nav-toggle-icon" aria-hidden="true"></span>
+    </button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <ul>
+        <li><a href="#projeto">O projeto</a></li>
+        <li><a href="#desafios">Desafios ambientais</a></li>
+        <li><a href="#metodologia">Metodologia</a></li>
+      </ul>
+      <a class="btn btn-nav" href="comparador.html">Explorar municípios</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- SEÇÃO 2: hero -->
+<section class="hero" id="inicio" aria-labelledby="hero-titulo">
+  <div class="container hero-text">
+    <p class="hero-tag">Dados ambientais · Pernambuco · Fontes oficiais</p>
+    <h1 id="hero-titulo">Entender uma cidade é também entender o ambiente em que vivemos.</h1>
+    <div class="hero-row">
+      <p class="hero-sub">O Cidade Verde transforma indicadores ambientais em informação acessível, ajudando a compreender como saneamento, água, vegetação e infraestrutura influenciam a qualidade de vida nos municípios.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="comparador.html">Explorar o comparador</a>
+        <a class="btn btn-ghost" href="#projeto">Conhecer o projeto</a>
+      </div>
+    </div>
+  </div>
+  <figure class="hero-art">
+    <svg viewBox="0 0 1440 380" preserveAspectRatio="xMidYMax slice" role="img" aria-labelledby="hero-art-t">
+      <title id="hero-art-t">Ilustração conceitual de um território, do morro ao mar: vegetação, área urbana, rio, manguezal e oceano.</title>
+      <defs>
+        <linearGradient id="hero-fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".55" stop-color="#fff" stop-opacity="1"/></linearGradient>
+        <mask id="hero-mask"><rect width="1440" height="380" fill="url(#hero-fade)"/></mask>
+      </defs>
+      <g fill="none" stroke="#F1EEE2" stroke-opacity=".16" stroke-width="1.2" mask="url(#hero-mask)">
+        <path d="M-20 170c140-70 300-60 430-10s260 60 400-5 300-60 420-10 200 30 260 20"/>
+        <path d="M-20 200c140-70 300-60 430-10s260 60 400-5 300-60 420-10 200 30 260 20"/>
+        <path d="M-20 230c140-70 300-60 430-10s260 60 400-5 300-60 420-10 200 30 260 20"/>
+        <path d="M-20 140c140-70 300-60 430-10s260 60 400-5 300-60 420-10 200 30 260 20"/>
+        <path d="M-20 110c140-70 300-60 430-10s260 60 400-5 300-60 420-10 200 30 260 20"/>
+      </g>
+      <path d="M0 250C110 175 230 168 350 205s210 55 340 40V380H0Z" fill="#1F4B37"/>
+      <path d="M0 290C120 240 250 235 380 262s230 30 330 18V380H0Z" fill="#2A5B3F"/>
+      <g fill="#3E6A3A">
+        <circle cx="70" cy="262" r="14"/><circle cx="102" cy="254" r="17"/><circle cx="140" cy="262" r="13"/>
+        <circle cx="205" cy="246" r="15"/><circle cx="240" cy="240" r="18"/><circle cx="278" cy="248" r="13"/>
+      </g>
+      <g fill="#E6E0CC">
+        <rect x="430" y="248" width="26" height="62"/><rect x="462" y="232" width="30" height="78"/>
+        <rect x="498" y="262" width="24" height="48"/><rect x="528" y="222" width="34" height="88"/>
+        <rect x="568" y="254" width="26" height="56"/><rect x="600" y="240" width="30" height="70"/>
+        <rect x="636" y="268" width="24" height="42"/>
+      </g>
+      <g fill="#9BB0A2" opacity=".55">
+        <rect x="436" y="258" width="5" height="7"/><rect x="446" y="258" width="5" height="7"/><rect x="470" y="244" width="5" height="7"/>
+        <rect x="480" y="244" width="5" height="7"/><rect x="536" y="236" width="5" height="7"/><rect x="548" y="236" width="5" height="7"/>
+        <rect x="608" y="252" width="5" height="7"/><rect x="618" y="252" width="5" height="7"/>
+      </g>
+      <path d="M0 312H700V380H0Z" fill="#17392A"/>
+      <path d="M690 312C760 312 800 322 860 326s150 6 240 8" fill="none" stroke="#4E9CC4" stroke-width="14" stroke-linecap="round"/>
+      <path d="M700 312H1440V380H700Z" fill="#1B4636"/>
+      <g fill="#5E7F3A">
+        <circle cx="770" cy="304" r="11"/><circle cx="796" cy="298" r="13"/><circle cx="826" cy="304" r="10"/>
+        <circle cx="880" cy="310" r="11"/><circle cx="908" cy="304" r="13"/><circle cx="940" cy="310" r="10"/>
+      </g>
+      <g stroke="#5E7F3A" stroke-width="2" fill="none">
+        <path d="M770 315v8M796 311v12M826 314v9M880 321v6M908 317v10M940 320v7"/>
+      </g>
+      <path d="M1040 380V318c120-8 250-6 400-14V380Z" fill="#245F83"/>
+      <g fill="none" stroke="#9CCBE4" stroke-opacity=".6" stroke-width="2" stroke-linecap="round">
+        <path d="M1090 340q15-8 30 0t30 0"/><path d="M1200 356q15-8 30 0t30 0"/><path d="M1320 334q15-8 30 0t30 0"/>
+      </g>
+    </svg>
+    <figcaption>Ilustração conceitual do território, do morro ao mar. Não representa dados reais de nenhum município.</figcaption>
+  </figure>
+</section>
+
+<!-- SEÇÃO 3: apresentação do projeto -->
+<section class="section projeto" id="projeto" aria-labelledby="projeto-titulo">
+  <div class="container projeto-grid">
+    <div class="projeto-head">
+      <h2 id="projeto-titulo">Dados para compreender o território.</h2>
+    </div>
+    <div class="projeto-body prose">
+      <p>O desenvolvimento das cidades envolve decisões sobre saneamento, ocupação do solo, preservação ambiental e infraestrutura. Compreender esses aspectos exige informações confiáveis e acessíveis.</p>
+      <p>O Cidade Verde reúne indicadores ambientais de fontes públicas e organiza essas informações para facilitar a comparação entre municípios.</p>
+      <p>A ferramenta busca tornar os dados mais compreensíveis e estimular uma reflexão sobre os desafios ambientais enfrentados pelas cidades.</p>
+      <p class="limite">O projeto informa e compara indicadores. Ele não mede o impacto de políticas públicas nem resolve problemas ambientais por si só.</p>
+    </div>
+    <ol class="fluxo" aria-label="Como o Cidade Verde funciona">
+      <li><strong>Fontes públicas</strong><span>IBGE, MapBiomas, ANA, APAC e sistemas do Ministério das Cidades.</span></li>
+      <li><strong>Organização</strong><span>Indicadores agrupados por tema, com fonte e período de referência.</span></li>
+      <li><strong>Comparação</strong><span>Dois municípios lado a lado, com valores ausentes sempre sinalizados.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- SEÇÃO 4: por que o meio ambiente urbano importa -->
+<section class="section desafios" id="desafios" aria-labelledby="desafios-titulo">
+  <div class="container">
+    <div class="desafios-head">
+      <h2 id="desafios-titulo">O ambiente de uma cidade afeta a vida de quem mora nela.</h2>
+      <p class="prose">Água, esgoto, lixo, vegetação e chuva parecem assuntos separados. Na prática, eles se encontram no mesmo território e se influenciam.</p>
+    </div>
+
+    <article class="tema reveal" id="tema-agua">
+      <figure class="tema-fig tema-river">
+        <svg viewBox="0 0 480 300" role="img" aria-labelledby="fig-agua-t">
+          <title id="fig-agua-t">Esquema de uma casa ligada à rede de água e ao esgoto, que segue para tratamento antes de chegar ao rio.</title>
+          <g class="ln">
+            <path d="M0 230H480" class="ground"/>
+            <path d="M44 150l46-38 46 38v58H44Z"/><path d="M80 208v-30h20v30"/>
+            <path d="M0 196H44" class="pipe-a"/>
+            <path d="M136 208h56c24 0 24 22 48 22" class="pipe-b" stroke-dasharray="6 5"/>
+            <rect x="240" y="212" width="82" height="40" rx="3"/>
+            <path d="M322 232h70" class="pipe-b" stroke-dasharray="6 5"/>
+            <path d="M386 252q16-10 32 0t32 0M386 272q16-10 32 0t32 0" class="water"/>
+          </g>
+          <g class="tx">
+            <text x="4" y="222">água tratada</text>
+            <text x="150" y="196">esgoto coletado</text>
+            <text x="244" y="274">tratamento</text>
+            <text x="404" y="222">rio</text>
+          </g>
+        </svg>
+        <figcaption>Ilustração conceitual.</figcaption>
+      </figure>
+      <div class="tema-txt">
+        <h3>Água e saneamento</h3>
+        <p>Água tratada nas torneiras e esgoto levado para longe de quem vive perto dele fazem parte da mesma história. Quando o esgoto é coletado, mas não tratado, o problema apenas muda de lugar e chega aos rios e ao mar.</p>
+        <p>Por isso coleta e tratamento são coisas diferentes. Ambas importam para a saúde pública, para a qualidade dos rios e para a dignidade de quem mora na cidade.</p>
+        <p class="ver">No comparador: <a href="comparador.html#agua">abastecimento de água</a> e <a href="comparador.html#esgoto">esgotamento sanitário</a>.</p>
+      </div>
+    </article>
+
+    <article class="tema tema-inv reveal" id="tema-residuos">
+      <figure class="tema-fig tema-earth">
+        <svg viewBox="0 0 480 300" role="img" aria-labelledby="fig-res-t">
+          <title id="fig-res-t">Esquema de um recipiente de lixo, a coleta e um aterro sanitário em corte, com camadas de proteção do solo.</title>
+          <g class="ln">
+            <path d="M0 230H480" class="ground"/>
+            <path d="M40 150h50l-6 80H46Z"/><path d="M34 150h62"/><path d="M52 164v52M65 164v52M78 164v52" opacity=".5"/>
+            <path d="M118 190h70" stroke-dasharray="6 5"/><path d="M178 182l12 8-12 8"/>
+            <path d="M226 230l30-70h180l30 70"/>
+            <path d="M240 230l26-58h160l26 58" stroke-dasharray="3 4"/>
+            <path d="M256 160c20-14 40-14 60 0s40 14 60 0 40-10 60 0"/>
+            <path d="M226 252h240M226 270h240" opacity=".5"/>
+          </g>
+          <g class="tx">
+            <text x="22" y="262">coleta</text>
+            <text x="262" y="214">destinação final</text>
+            <text x="226" y="292">proteção do solo</text>
+          </g>
+        </svg>
+        <figcaption>Ilustração conceitual.</figcaption>
+      </figure>
+      <div class="tema-txt">
+        <h3>Resíduos sólidos</h3>
+        <p>Coletar o lixo é só o primeiro passo. Importa também para onde ele vai: aterros sanitários controlados, lixões e descartes irregulares têm efeitos muito diferentes sobre o solo, a água e a saúde.</p>
+        <p>Coleta seletiva, reciclagem e redução do consumo diminuem a quantidade de resíduos que precisa ser enterrada.</p>
+        <p class="ver">No comparador: <a href="comparador.html#residuos">resíduos sólidos e coleta de lixo</a>.</p>
+      </div>
+    </article>
+
+    <article class="tema reveal" id="tema-vegetacao">
+      <figure class="tema-fig tema-olive">
+        <svg viewBox="0 0 480 300" role="img" aria-labelledby="fig-veg-t">
+          <title id="fig-veg-t">Esquema de um corte do solo com árvores de raízes profundas à esquerda e edifícios à direita.</title>
+          <g class="ln">
+            <path d="M0 220H480" class="ground"/>
+            <path d="M0 250H480M0 276H480" opacity=".4"/>
+            <path d="M52 220v-48M52 188l-14-14M52 196l14-12"/><circle cx="52" cy="150" r="30"/><path d="M52 220v26M52 232l-14 14M52 232l14 14"/>
+            <path d="M132 220v-60M132 190l-16-14M132 198l16-14"/><circle cx="132" cy="128" r="36"/><path d="M132 220v32M132 238l-18 14M132 238l18 14"/>
+            <path d="M206 220v-40"/><circle cx="206" cy="154" r="24"/><path d="M206 220v22M206 232l-12 10M206 232l12 10"/>
+            <rect x="274" y="156" width="44" height="64"/><rect x="326" y="120" width="52" height="100"/><rect x="386" y="168" width="40" height="52"/>
+            <path d="M286 172h8M286 188h8M338 138h8M338 156h8M338 174h8M398 184h8" opacity=".6"/>
+            <path d="M262 220h180" stroke-width="5"/>
+          </g>
+          <g class="tx"><text x="24" y="292">raízes seguram o solo</text><text x="270" y="292">superfície impermeável</text></g>
+        </svg>
+        <figcaption>Ilustração conceitual.</figcaption>
+      </figure>
+      <div class="tema-txt">
+        <h3>Vegetação e uso do solo</h3>
+        <p>Árvores, manguezais e áreas verdes ajudam a amenizar o calor, abrigam biodiversidade, seguram o solo nas encostas e protegem as margens dos rios.</p>
+        <p>A quantidade de vegetação é uma peça importante, mas não resume a qualidade ambiental de uma cidade. Ela precisa ser lida junto com os outros indicadores.</p>
+        <p class="ver">No comparador: <a href="comparador.html#vegetacao">vegetação e cobertura do solo</a>.</p>
+      </div>
+    </article>
+
+    <article class="tema tema-inv reveal" id="tema-drenagem">
+      <figure class="tema-fig tema-river">
+        <svg viewBox="0 0 480 300" role="img" aria-labelledby="fig-dre-t">
+          <title id="fig-dre-t">Esquema de uma encosta com chuva: onde o solo está livre a água infiltra, onde está coberto ela escorre para a parte baixa.</title>
+          <g class="ln">
+            <path d="M0 150C90 150 150 190 240 214s170 20 240 20"/>
+            <path d="M0 150C90 150 150 190 240 214s170 20 240 20V300H0Z" class="fillsoft" stroke="none"/>
+            <path d="M60 40l-12 30M110 30l-12 30M160 40l-12 30M210 30l-12 30M260 40l-12 30M310 30l-12 30M360 40l-12 30M410 30l-12 30" class="water"/>
+            <path d="M40 160v32M40 184l-6-8M40 184l6-8M90 168v32M90 192l-6-8M90 192l6-8" stroke-dasharray="3 4"/>
+            <path d="M206 198l40 12 40 8" stroke-width="5"/>
+            <path d="M270 206h26M300 216h26" class="water"/><path d="M322 210l10 6-10 6" class="water"/>
+            <path d="M120 150l28-24 28 24v18H120Z" opacity=".75"/>
+            <path d="M360 238q20-9 40 0t40 0" class="water"/>
+          </g>
+          <g class="tx"><text x="24" y="226">infiltra</text><text x="236" y="250">escoa e se acumula</text></g>
+        </svg>
+        <figcaption>Ilustração conceitual.</figcaption>
+      </figure>
+      <div class="tema-txt">
+        <h3>Drenagem e riscos ambientais</h3>
+        <p>Quando asfalto e concreto cobrem o solo, a chuva infiltra menos e escoa mais rápido. Sem drenagem adequada, chuvas intensas viram alagamentos. Em encostas ocupadas, aumentam o risco de deslizamentos.</p>
+        <p>Planejar a ocupação do território é uma das formas de reduzir esses riscos.</p>
+        <p class="ver">No comparador: <a href="comparador.html#drenagem">drenagem urbana e riscos ambientais</a>.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SEÇÃO 5: um olhar sobre Pernambuco -->
+<section class="section pernambuco" id="pernambuco" aria-labelledby="pe-titulo">
+  <div class="container pe-grid">
+    <div class="pe-text">
+      <h2 id="pe-titulo">Cidades vizinhas, territórios diferentes.</h2>
+      <div class="prose">
+        <p>O Cidade Verde nasceu olhando para a Região Metropolitana do Recife. Recife e Olinda são os municípios usados como exemplo inicial da comparação, mas o comparador permite escolher quaisquer dois municípios de Pernambuco.</p>
+        <p>Cidades próximas podem ter características territoriais, infraestruturas e desafios ambientais diferentes. Só a comparação de indicadores permite enxergar essas diferenças, e só os dados de cada fonte permitem dizer o que elas significam.</p>
+      </div>
+      <dl class="pe-lista">
+        <div><dt>Rios e estuários</dt><dd>Os rios que cruzam a região levam consigo o que a cidade devolve ao ambiente, da chuva ao esgoto.</dd></div>
+        <div><dt>Manguezais e outros ecossistemas</dt><dd>Ecossistemas costeiros convivem com a urbanização e dependem da qualidade da água e da ocupação das margens.</dd></div>
+        <div><dt>Urbanização e preservação</dt><dd>Crescer e preservar são decisões de ocupação do território que se encontram no mesmo mapa.</dd></div>
+        <div><dt>Saneamento e drenagem</dt><dd>Esgoto, lixo e chuva são desafios de infraestrutura presentes em cidades de todos os tamanhos.</dd></div>
+        <div><dt>Planejamento diante de riscos</dt><dd>Alagamentos e deslizamentos pedem planejamento urbano que considere o relevo, a água e a ocupação.</dd></div>
+      </dl>
+      <p class="aviso">Esta seção contextualiza o projeto e não apresenta estatísticas. Os números de cada município estão no comparador, com fonte e período de referência.</p>
+    </div>
+    <figure class="pe-fig">
+      <svg viewBox="0 0 440 560" role="img" aria-labelledby="pe-art-t">
+        <title id="pe-art-t">Esquema ilustrativo de um litoral com rios desaguando no mar. Olinda aparece ao norte e Recife ao sul.</title>
+        <g fill="none" stroke="var(--olive)" stroke-opacity=".35" stroke-width="1.2">
+          <path d="M20 60c80-30 150 10 200 0s110-30 150 10"/><path d="M20 100c80-30 150 10 200 0s110-30 150 10"/>
+          <path d="M20 140c80-30 150 10 200 0s110-30 150 10"/><path d="M20 180c80-30 150 10 200 0s110-30 150 10"/>
+          <path d="M20 220c80-30 150 10 200 0s110-30 150 10"/><path d="M20 260c80-30 150 10 200 0s110-30 150 10"/>
+          <path d="M20 300c80-30 150 10 200 0s110-30 150 10"/><path d="M20 340c80-30 150 10 200 0s110-30 150 10"/>
+          <path d="M20 380c80-30 150 10 200 0s110-30 150 10"/><path d="M20 420c80-30 150 10 200 0s110-30 150 10"/>
+        </g>
+        <path d="M300 0c-10 80 30 120 10 200s-40 120-10 200 20 120 6 160H440V0Z" fill="var(--river)" fill-opacity=".22"/>
+        <path d="M300 0c-10 80 30 120 10 200s-40 120-10 200 20 120 6 160" fill="none" stroke="var(--river)" stroke-width="2.5"/>
+        <path d="M40 180c60 10 100 40 150 38s80 24 114 22" fill="none" stroke="var(--river)" stroke-width="5" stroke-linecap="round"/>
+        <path d="M30 380c50-12 110-6 160 14s80 20 124 6" fill="none" stroke="var(--river)" stroke-width="5" stroke-linecap="round"/>
+        <g fill="var(--olive)" fill-opacity=".8">
+          <circle cx="236" cy="230" r="8"/><circle cx="254" cy="224" r="9"/><circle cx="272" cy="232" r="7"/>
+          <circle cx="236" cy="396" r="8"/><circle cx="254" cy="390" r="9"/><circle cx="272" cy="398" r="7"/>
+        </g>
+        <g fill="var(--fg)">
+          <circle cx="180" cy="120" r="7"/><circle cx="196" cy="330" r="7"/>
+        </g>
+        <g font-family="var(--body)" font-size="17" fill="var(--fg)" font-weight="600">
+          <text x="196" y="116">Olinda</text><text x="212" y="336">Recife</text>
+        </g>
+        <g font-family="var(--body)" font-size="13" fill="var(--muted)">
+          <text x="330" y="60">oceano</text><text x="40" y="206">rio</text><text x="40" y="372">rio</text>
+        </g>
+      </svg>
+      <figcaption>Esquema ilustrativo, sem escala. Não é um mapa e não reproduz limites ou o traçado real de rios.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- SEÇÃO 6: o que podemos comparar -->
+<section class="section indicadores" id="indicadores" aria-labelledby="ind-titulo">
+  <div class="container">
+    <div class="ind-head">
+      <h2 id="ind-titulo">O que podemos comparar?</h2>
+      <p class="prose">Seis grupos de indicadores organizam o comparador. A disponibilidade dos dados varia conforme o indicador e a fonte consultada.</p>
+    </div>
+    <ul class="ind-lista">
+      <li>
+        <div class="ind-nome"><a href="comparador.html#agua">Abastecimento de água</a></div>
+        <p>Entenda como a água chega aos domicílios e compare as formas de abastecimento entre municípios.</p>
+        <div class="ind-status"><span class="status status-auto">Censo 2022, via API do IBGE</span></div>
+      </li>
+      <li>
+        <div class="ind-nome"><a href="comparador.html#esgoto">Esgotamento sanitário</a></div>
+        <p>Veja para onde vai o esgoto dos banheiros: rede geral, fossa ou outras soluções. Coletar não é o mesmo que tratar.</p>
+        <div class="ind-status"><span class="status status-auto">Censo 2022, via API do IBGE</span></div>
+      </li>
+      <li>
+        <div class="ind-nome"><a href="comparador.html#residuos">Resíduos sólidos e coleta de lixo</a></div>
+        <p>Compare o destino do lixo dos domicílios. Ter o lixo coletado não garante que ele tenha destinação adequada.</p>
+        <div class="ind-status"><span class="status status-auto">Destino do lixo: Censo 2022, via API do IBGE</span>
+          <span class="status status-manual">Gestão de resíduos: a preencher</span></div>
+      </li>
+      <li>
+        <div class="ind-nome"><a href="comparador.html#vegetacao">Vegetação e cobertura do solo</a></div>
+        <p>Investigue vegetação natural, mangue e áreas urbanizadas. A vegetação é uma peça da qualidade ambiental, não o quadro completo.</p>
+        <div class="ind-status"><span class="status status-manual">Campos previstos, valores a preencher</span></div>
+      </li>
+      <li>
+        <div class="ind-nome"><a href="comparador.html#hidricos">Recursos hídricos</a></div>
+        <p>Conheça rios e bacias e a pressão que o esgoto e as perdas de água exercem sobre eles.</p>
+        <div class="ind-status"><span class="status status-manual">Campos previstos, valores a preencher</span></div>
+      </li>
+      <li>
+        <div class="ind-nome"><a href="comparador.html#drenagem">Drenagem urbana e riscos ambientais</a></div>
+        <p>Consulte o planejamento da drenagem e a população exposta a alagamentos e deslizamentos.</p>
+        <div class="ind-status"><span class="status status-manual">Campos previstos, valores a preencher</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- SEÇÃO 7: conheça o comparador -->
+<section class="section transicao" id="comparador" aria-labelledby="comp-titulo">
+  <div class="container transicao-inner">
+    <h2 id="comp-titulo">Compare municípios. Investigue diferenças. Compreenda o território.</h2>
+    <div>
+      <p class="prose">Explore indicadores ambientais, consulte as fontes e observe como diferentes aspectos da infraestrutura urbana se distribuem entre os municípios.</p>
+      <p class="nota-ferramenta">A página seguinte é uma ferramenta interativa de análise de dados: você escolhe dois municípios de Pernambuco e navega pelos temas.</p>
+      <a class="btn btn-primary" href="comparador.html">Acessar o comparador</a>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 8: metodologia e fontes -->
+<section class="section metodologia" id="metodologia" aria-labelledby="met-titulo">
+  <div class="container">
+    <div class="met-head">
+      <h2 id="met-titulo">Metodologia e fontes</h2>
+      <div class="prose">
+        <p>Os indicadores vêm de fontes públicas e oficiais. Cada conjunto de dados tem período de referência, metodologia e limitações próprios, e por isso podem corresponder a anos diferentes. Uma comparação responsável precisa considerar essas diferenças.</p>
+      </div>
+    </div>
+
+    <div class="met-status">
+      <div class="ms ms-auto">
+        <h3>Obtidos automaticamente</h3>
+        <p>Abastecimento de água, esgotamento sanitário e destino do lixo vêm do Censo Demográfico 2022, consultados pela API de agregados do IBGE (tabelas SIDRA 6909, 9397 e 9541) a cada visita ao comparador. A lista de municípios também vem do IBGE.</p>
+      </div>
+      <div class="ms ms-manual">
+        <h3>Preenchidos manualmente</h3>
+        <p>Vegetação, recursos hídricos, drenagem, riscos e a gestão de resíduos dependem de valores consultados nas fontes e digitados no projeto. Esses campos não são atualizados automaticamente.</p>
+      </div>
+      <div class="ms ms-vazio">
+        <h3>Indisponíveis ou ainda não preenchidos</h3>
+        <p>Na versão atual, os campos manuais aparecem como “a preencher” no comparador. Um valor ausente nunca é tratado como zero nem entra em cálculos de comparação.</p>
+      </div>
+    </div>
+
+    <div class="tbl-fontes" role="region" aria-label="Tabela de fontes" tabindex="0">
+      <table>
+        <caption class="sr-only">Fontes de dados do Cidade Verde</caption>
+        <thead><tr><th scope="col">Fonte</th><th scope="col">Uso no projeto</th><th scope="col">Como entra</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><a href="https://censo2022.ibge.gov.br" target="_blank" rel="noopener">IBGE · Censo Demográfico 2022</a></th><td>Água, esgoto e destino do lixo dos domicílios. Percentuais calculados sobre os moradores em domicílios particulares permanentes ocupados.</td><td>Automático</td></tr>
+          <tr><th scope="row"><a href="https://servicodados.ibge.gov.br/api/docs/agregados?versao=3" target="_blank" rel="noopener">IBGE · API de dados agregados</a></th><td>Canal de acesso às tabelas do Censo e à lista de municípios.</td><td>Automático</td></tr>
+          <tr><th scope="row"><a href="https://plataforma.brasil.mapbiomas.org" target="_blank" rel="noopener">MapBiomas</a></th><td>Cobertura e uso do solo: vegetação natural, mangue e áreas urbanizadas.</td><td>Manual, a preencher</td></tr>
+          <tr><th scope="row"><a href="https://www.snirh.gov.br" target="_blank" rel="noopener">ANA · SNIRH</a></th><td>Recursos hídricos, esgoto coletado e tratado, perdas na distribuição de água.</td><td>Manual, a preencher</td></tr>
+          <tr><th scope="row"><a href="https://www.apac.pe.gov.br" target="_blank" rel="noopener">APAC</a></th><td>Rios e bacias de Pernambuco.</td><td>Manual, a preencher</td></tr>
+          <tr><th scope="row"><a href="https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/sinisa" target="_blank" rel="noopener">Ministério das Cidades · SINISA</a></th><td>Resíduos sólidos e saneamento.</td><td>Manual, a preencher</td></tr>
+          <tr><th scope="row"><a href="https://www.ibge.gov.br/estatisticas/sociais/saude/10586-pesquisa-de-informacoes-basicas-municipais.html" target="_blank" rel="noopener">IBGE · MUNIC</a></th><td>Planejamento de drenagem e gestão municipal. Também usada para população em áreas de risco, junto com o levantamento IBGE/Cemaden de 2018.</td><td>Manual, a preencher</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="cuidados">
+      <li>Coleta de esgoto não é tratamento de esgoto.</li>
+      <li>Coleta de lixo não é destinação ambientalmente adequada.</li>
+      <li>Cobertura vegetal não resume a qualidade ambiental de um município.</li>
+      <li>Fontes com anos de referência diferentes pedem cautela ao comparar.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SEÇÃO 9: chamada final -->
+<section class="final" aria-labelledby="final-titulo">
+  <div class="container final-inner">
+    <h2 id="final-titulo">Uma cidade melhor começa com uma compreensão melhor do seu território.</h2>
+    <p>Explore os indicadores, compare municípios e descubra o que os dados públicos podem revelar sobre os desafios ambientais das cidades.</p>
+    <a class="btn btn-primary" href="comparador.html">Explorar dados ambientais</a>
+  </div>
+</section>
+
+</main>
+
+<!-- SEÇÃO 10: rodapé -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <p class="footer-brand">Cidade Verde</p>
+      <p>Comparador de indicadores ambientais de municípios de Pernambuco, construído a partir de dados públicos. Ferramenta de caráter informativo: os dados podem ter períodos de referência diferentes e não substituem a consulta às fontes oficiais.</p>
+    </div>
+    <nav aria-label="Rodapé: navegação">
+      <p class="footer-title">Navegação</p>
+      <ul>
+        <li><a href="#projeto">O projeto</a></li>
+        <li><a href="#desafios">Desafios ambientais</a></li>
+        <li><a href="#pernambuco">Um olhar sobre Pernambuco</a></li>
+        <li><a href="#metodologia">Metodologia</a></li>
+        <li><a href="comparador.html">Comparador</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Rodapé: fontes de dados">
+      <p class="footer-title">Fontes de dados</p>
+      <ul>
+        <li><a href="https://servicodados.ibge.gov.br/api/docs/agregados?versao=3" target="_blank" rel="noopener">IBGE · API de agregados</a></li>
+        <li><a href="https://plataforma.brasil.mapbiomas.org" target="_blank" rel="noopener">MapBiomas</a></li>
+        <li><a href="https://www.snirh.gov.br" target="_blank" rel="noopener">ANA · SNIRH</a></li>
+        <li><a href="https://www.apac.pe.gov.br" target="_blank" rel="noopener">APAC</a></li>
+        <li><a href="https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/sinisa" target="_blank" rel="noopener">SINISA</a></li>
+        <li><a href="https://www.ibge.gov.br/estatisticas/sociais/saude/10586-pesquisa-de-informacoes-basicas-municipais.html" target="_blank" rel="noopener">IBGE · MUNIC</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script src="landing.js" defer></script>
+</body>
+</html>

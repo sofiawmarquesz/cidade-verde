@@ -1,0 +1,53 @@
+/* Identidade visual compartilhada entre a landing page e o comparador. */
+:root{
+  color-scheme: light;
+  /* Superfícies e texto */
+  --bg:#F4F1E8;          /* areia clara */
+  --surface:#FFFFFF;
+  --fg:#1F2724;          /* grafite */
+  --muted:#566159;
+  --line:#D9D6C8;
+  --track:#E8E5D8;
+  /* Paleta da paisagem */
+  --accent:#1E4D38;      /* verde-floresta: destaques e botões */
+  --on-accent:#F7F4EA;
+  --olive:#6E7B3B;       /* verde-oliva: elementos secundários */
+  --river:#2A6A8C;       /* rios e oceano */
+  --earth:#9C6238;       /* detalhes terrosos */
+  --hero-bg:#143325;
+  --hero-fg:#F1EEE2;
+  /* Municípios no comparador */
+  --a:#0E6B70;           /* A: maré, rio Capibaribe */
+  --a-soft:#D7ECEC;
+  --b:#B0631C;           /* B: telha do sítio histórico */
+  --b-soft:#F4E3D1;
+  --pend:#7A5C00;
+  --pend-bg:#FBF1CF;
+  --err:#A3302A;
+  --focus:#1B5FD1;
+  --display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --radius:6px;
+  font-size: calc(clamp(16px, 0.55vw + 12px, 30px) * var(--fs-scale, 1)); /* cresce em TVs; --fs-scale vem do painel de acessibilidade */
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#101A16; --surface:#16231E; --fg:#E6EDE7; --muted:#9AAAA1;
+    --line:#2B3A33; --track:#23322B;
+    --accent:#8CC9A5; --on-accent:#0F1A15; --olive:#A3B466; --river:#6FB2D6; --earth:#D39A6A;
+    --hero-bg:#0B1511;
+    --a:#4FB8BD; --a-soft:#173A3B; --b:#E1964F; --b-soft:#3D2A17;
+    --pend:#E7C653; --pend-bg:#352D10; --err:#F08A80; --focus:#7FA9FF;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#101A16; --surface:#16231E; --fg:#E6EDE7; --muted:#9AAAA1;
+  --line:#2B3A33; --track:#23322B;
+  --accent:#8CC9A5; --on-accent:#0F1A15; --olive:#A3B466; --river:#6FB2D6; --earth:#D39A6A;
+  --hero-bg:#0B1511;
+  --a:#4FB8BD; --a-soft:#173A3B; --b:#E1964F; --b-soft:#3D2A17;
+  --pend:#E7C653; --pend-bg:#352D10; --err:#F08A80; --focus:#7FA9FF;
+}

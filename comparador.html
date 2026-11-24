@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Comparador | Cidade Verde</title>
+<meta name="description" content="Compare indicadores ambientais de dois municípios de Pernambuco: saneamento, resíduos, vegetação, recursos hídricos e riscos, com dados do Censo 2022 (IBGE) e outras fontes públicas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<meta property="og:title" content="Comparador | Cidade Verde">
+<meta property="og:description" content="Compare indicadores ambientais de municípios de Pernambuco com dados públicos.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#1E4D38">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="a11y.css">
+<script src="a11y.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="sitebar">
+    <a class="brand" href="index.html" aria-label="Cidade Verde, página inicial">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 18c3-1 4-4 8-4s5 3 10 2"/><path d="M12 14V5m0 3c-3 0-4-2-4-4 3 0 4 1 4 4Zm0 2c3 0 4-2 4-4-3 0-4 1-4 4Z"/></svg>
+      Cidade Verde
+    </a>
+    <nav aria-label="Site">
+      <a href="index.html#projeto">O projeto</a>
+      <a href="index.html#desafios">Desafios ambientais</a>
+      <a href="index.html#metodologia">Metodologia</a>
+    </nav>
+  </div>
+</div>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Comparador · Pernambuco · Censo 2022</div>
+    <h1><span class="va" id="t-a">Recife</span> <span class="x">x</span> <span class="vb" id="t-b">Olinda</span></h1>
+    <p class="lede">Comparação de saneamento, cobertura do solo, recursos hídricos e riscos ambientais entre dois municípios. Os dados de saneamento vêm direto da API do IBGE.</p>
+    <div class="pickers">
+      <div class="pick">
+        <label for="sel-a"><span class="dot a"></span>Município A</label>
+        <select id="sel-a"><option value="2611606">Recife</option></select>
+      </div>
+      <button class="swap" id="btn-swap" type="button" aria-label="Trocar municípios de lugar">⇄ Trocar</button>
+      <div class="pick">
+        <label for="sel-b"><span class="dot b"></span>Município B</label>
+        <select id="sel-b"><option value="2609600">Olinda</option></select>
+      </div>
+    </div>
+  </header>
+</div>
+
+<nav class="tabs" aria-label="Temas">
+  <div class="tablist" role="tablist" id="tablist"></div>
+</nav>
+
+<div class="wrap">
+  <main id="main"></main>
+  <footer>
+    <strong>Fontes e método</strong>
+    <p class="note" style="margin:0">Cada fonte tem período de referência e metodologia próprios. Campos marcados como “a preencher” ainda não têm valor e não entram em nenhuma comparação. <a class="back" href="index.html#metodologia">Ver metodologia completa</a>.</p>
+    <ul>
+      <li>Abastecimento de água, esgotamento e destino do lixo: IBGE, Censo Demográfico 2022, tabelas SIDRA 6909, 9397 e 9541, via <a href="https://servicodados.ibge.gov.br/api/docs/agregados?versao=3" target="_blank" rel="noopener">API de agregados v3</a>. Percentuais calculados sobre o total de moradores em domicílios particulares permanentes ocupados.</li>
+      <li>Cobertura do solo: <a href="https://plataforma.brasil.mapbiomas.org" target="_blank" rel="noopener">MapBiomas</a>.</li>
+      <li>Recursos hídricos: <a href="https://www.snirh.gov.br" target="_blank" rel="noopener">ANA / SNIRH</a> e <a href="https://www.apac.pe.gov.br" target="_blank" rel="noopener">APAC</a>.</li>
+      <li>Drenagem e riscos: IBGE, <a href="https://www.ibge.gov.br/estatisticas/sociais/saude/10586-pesquisa-de-informacoes-basicas-municipais.html" target="_blank" rel="noopener">MUNIC</a>; IBGE/Cemaden, População em Áreas de Risco (2018); SINISA (Ministério das Cidades).</li>
+    </ul>
+    <span>Panorama oficial: <a id="pan-a" href="https://cidades.ibge.gov.br/brasil/pe/recife/panorama" target="_blank" rel="noopener">Recife</a> · <a id="pan-b" href="https://cidades.ibge.gov.br/brasil/pe/olinda/panorama" target="_blank" rel="noopener">Olinda</a> (IBGE Cidades)</span>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
